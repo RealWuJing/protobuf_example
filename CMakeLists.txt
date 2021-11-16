@@ -7,12 +7,12 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 find_package(Protobuf REQUIRED)
 
-protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS test.proto)
+protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS nodes.proto)
 
 include_directories(${PROTOBUF_INCLUDE_DIRS})
 
-aux_source_directory(. PERSON_SRCS)
+aux_source_directory(. TEST_PROTO_JSON_SRCS)
 
-add_executable(person ${PERSON_SRCS} ${PROTO_SRCS} ${PROTO_HDRS})
+add_executable(test_proto_json ${TEST_PROTO_JSON_SRCS} ${PROTO_SRCS} ${PROTO_HDRS})
 
-target_link_libraries(person ${PROTOBUF_LIBRARIES})
+target_link_libraries(test_proto_json ${PROTOBUF_LIBRARIES})
