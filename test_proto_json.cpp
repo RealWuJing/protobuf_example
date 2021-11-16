@@ -1,3 +1,5 @@
+#include <QDebug>
+#include <QString>
 #include <google/protobuf/util/json_util.h>
 #include <iostream>
 #include "nodes.pb.h"
@@ -24,6 +26,9 @@ int main() {
     node.set_conf_path("reuwyruiwe");
     node.set_work_path("ewiruwe");
     node.set_worker_cnt(3);
+
+    QString str = QString(QString::fromLocal8Bit(node.name().c_str()));
+    qInfo() << "str:" << str;
 
     node.mutable_addr_info()->set_bind("xxxxxxxxxx");
     node.mutable_addr_info()->set_port(342);
